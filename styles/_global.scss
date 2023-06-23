@@ -1,0 +1,62 @@
+// Import variables
+@import 'variables';
+
+// Reset styles
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Base styles
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif; 
+  background-color: #ffffff;
+  color: $primary-color;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 90%;
+}
+
+// Header styles
+
+header {
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 30px 0;
+}
+
+// About section styles
+
+.about {
+  background-color: $secondary-color;
+  color: $primary-color;
+}
+
+// Gallery section styles
+
+.gallery {
+  background-color: #f5f5f5;
+}
+
+// Contact section styles
+
+.contact {
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+
+// Footer styles
+
+footer {
+  background-color: #222;
+  color: $secondary-color;
+}

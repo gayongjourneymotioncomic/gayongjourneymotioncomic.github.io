@@ -1,0 +1,192 @@
+// Import variables
+@import 'variables';
+
+// Import partials
+@import 'global';
+@import 'nav';
+
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto 0;
+  height: 100vh;
+  background: url(/img/silat3_bg.png);
+  background-size: cover;
+
+  .container{
+    width: 100%;
+
+    
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    width: 100%;
+    color: $secondary-color;
+    text-shadow: 1px 1px 5px $dark-color;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    //font tracking (spacing between letters) 
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.2rem;
+    text-align: center; 
+    color: $secondary-color;
+    margin-bottom: 30px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $accent-color;
+    color: $secondary-color;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: darken($accent-color, 10%);
+  }
+}
+
+section {
+  padding: 50px 150px;
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+
+  &>img{
+    margin:  30px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+    //hover to scale image
+    &:hover{
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >*{
+      text-align: center;
+    }
+    h2{
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 30px;
+
+    }
+    p{
+      text-align: justify;
+    }
+   
+  }
+
+}
+
+
+footer{
+  padding: 10px;
+  height: 50px;
+}
+
+.chapter-list {
+  background-color: #fff;
+  padding: 100px 0;
+  width: 100%;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .chapter-scroll {
+    max-height: 300px; 
+    overflow-y: scroll;
+    width: 50%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+  }
+
+  .chapter-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    .chapter-image {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .chapter-info {
+      margin-inline-start: 10px;
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        text-align: left;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #777;
+      }
+    }
+  }
+}
+
+
+.odd{
+  background-color: #fff;
+}
+
+.even{
+  background-color: $primary-color;
+  h2, h3, p, a{
+    color: $secondary-color;
+  }
+
+}
+
+ul li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: $primary-color;
+  font-weight: 700;
+  transition: color 0.3s ease;
+  &:hover{
+    color: darken($primary-color, 10%);
+  }
+}   
+.about, .about .container{
+  flex-direction: column;
+}

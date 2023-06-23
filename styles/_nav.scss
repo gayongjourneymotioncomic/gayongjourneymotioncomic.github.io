@@ -1,0 +1,47 @@
+// Import variables
+@import 'variables';
+
+
+header{
+  //made image darker with overlay and opacity
+  background-color: rgb(32, 32, 32);
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  z-index: 2;
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.logo {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: $secondary-color;
+  z-index:1; 
+}
+
+.nav-links li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  color: $secondary-color;
+  text-decoration: none;
+}
+
