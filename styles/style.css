@@ -226,6 +226,7 @@ section {
 }
 section > img {
   margin: 30px 0;
+  width: 80%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 section > img:hover {
@@ -273,39 +274,60 @@ footer {
   text-align: center;
 }
 .chapter-list .chapter-scroll {
-  max-height: 300px;
-  overflow-y: scroll;
-  width: 50%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  width: 80vw;
   padding: 10px;
+}
+.chapter-list .chapter-items {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .chapter-list .chapter-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
   cursor: pointer;
 }
-.chapter-list .chapter-item .chapter-image {
-  width: 80px;
-  height: 80px;
+.chapter-list .chapter-item img {
+  width: 300px;
+  height: 400px;
+  size: cover;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 50%;
-  margin-right: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.chapter-list .chapter-item img:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.chapter-list .chapter-item img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
 }
 .chapter-list .chapter-item .chapter-info {
-  -webkit-margin-start: 10px;
-          margin-inline-start: 10px;
-}
-.chapter-list .chapter-item .chapter-info h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+  position: relative;
+  transform: translateY(-100px);
+  width: 100%;
+  background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  padding: 10px;
   text-align: left;
 }
+.chapter-list .chapter-item .chapter-info h3 {
+  text-transform: uppercase;
+}
 .chapter-list .chapter-item .chapter-info p {
-  font-size: 0.9rem;
-  color: #777;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
 }
 
 .odd {
