@@ -7,7 +7,8 @@ const flashcards = [
     imagePath: '../img/silat2_bg.jpg',
     remember1: false,
     remember2: false,
-    remember3: false
+    remember3: false,
+    index: 0
   },
   {
     sequence: 2,
@@ -15,10 +16,16 @@ const flashcards = [
     imagePath: '../img/silat_bg.jpg',
     remember1: false,
     remember2: false,
-    remember3: false
+    remember3: false,
+    index: 1
   },
   // Add more flashcards...
 ];
+
+// add object into local storage
+localStorage.setItem('flashcards', JSON.stringify(flashcards));
+
+// get object from local storage
 
 let currentIndex = 0; // Keep track of the current flashcard index
 const flashcardcontainer = document.querySelector('.flashcard-container');
@@ -77,37 +84,44 @@ function createFlashcardElement(flashcard) {
   return flashcardElement;
 }
 
+
 function showFlashcards() {
   flashcardcontainer.innerHTML = ''; // Clear the container
-  
-  const currentFlashcard = flashcards[currentIndex];
-  const flashcardElement = createFlashcardElement(currentFlashcard);
-  
-  flashcardcontainer.appendChild(flashcardElement);
-  
-  // Check the remember states and calculate the next index
-  if (!currentFlashcard.remember1 && !currentFlashcard.remember2 && !currentFlashcard.remember3) {
-    // Flashcard should appear again after next 3 moves
-    currentIndex += 3;
-  } else {
-    // Flashcard should appear in the next 6 moves
-    currentIndex += 6;
+
+  // Sort the flashcards based on the storedFlashCardStates index
+  const sortedFlashcards = storedFlashCardStates.sort((a, b) => a.index - b.index);
+
+  // Find the next flashcard to display
+  let nextFlashcardIndex = currentIndex;
+  while (nextFlashcardIndex < sortedFlashcards.length) {
+    const nextFlashcard = sortedFlashcards[nextFlashcardIndex];
+    if (!nextFlashcard.remember1 && !nextFlashcard.remember2 && !nextFlashcard.remember3) {
+      // Flashcard should appear again after the next 3 moves
+      break;
+    } else {
+      // Flashcard should appear in the next 6 moves
+      nextFlashcardIndex += 6;
+    }
   }
-  
+
   // If we reached the end of the flashcards, loop back to the beginning
-  if (currentIndex >= flashcards.length) {
-    currentIndex = 0;
+  if (nextFlashcardIndex >= sortedFlashcards.length) {
+    nextFlashcardIndex = 0;
   }
+
+  currentIndex = nextFlashcardIndex;
+  const currentFlashcard = sortedFlashcards[currentIndex];
+  const flashcardElement = createFlashcardElement(currentFlashcard);
+
+  flashcardcontainer.appendChild(flashcardElement);
 }
 
 showFlashcards();
-
-const storedFlashCardStates = JSON.parse(localStorage.getItem('flashcards')) || [];
-
-
 // Add event listeners to all flash cards
 const flashCards = document.querySelectorAll('.flash-card');
 flashCards.forEach(flashCard => {
+  //get all attribute from flash card 
+
   const chapter = flashCard.closest('.chapter').getAttribute('data-chapter');
   const move = flashCard.getAttribute('data-move');
   
@@ -124,7 +138,6 @@ flashCards.forEach(flashCard => {
   }
 
   flashCard.addEventListener('click', () => {
-    console.log('Flash card clicked:', chapter, move);  
     console.log('clicked');
     console.log(storedFlashCardStates);
 
