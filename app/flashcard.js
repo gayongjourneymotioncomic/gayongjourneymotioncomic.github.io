@@ -13,7 +13,7 @@ const flashcards = [
   {
     sequence: 2,
     name: 'Pancung Dayung',
-    imagePath: '../img/silat_bg.jpg',
+    imagePath: '../img/silat-bg.jpg',
     remember1: false,
     remember2: false,
     remember3: false,
@@ -23,11 +23,20 @@ const flashcards = [
 ];
 
 // add object into local storage
-localStorage.setItem('flashcards', JSON.stringify(flashcards));
+//check if there is any object in local storage 
+if (!localStorage.getItem('flashcards')) {
+  localStorage.setItem('flashcards', JSON.stringify(flashcards));
+}
 
 // get object from local storage
 
 let currentIndex = 0; // Keep track of the current flashcard index
+if(!localStorage.getItem('currentIndex')){ // Check if there is a current index in local storage
+  localStorage.setItem('currentIndex', JSON.stringify(currentIndex));
+}
+
+
+
 const flashcardcontainer = document.querySelector('.flashcard-container');
 
 function createFlashcardElement(flashcard) {
@@ -84,81 +93,68 @@ function createFlashcardElement(flashcard) {
   return flashcardElement;
 }
 
+// Get the stored flash card states from local storage
+const storedFlashCardStates = JSON.parse(localStorage.getItem('flashcards')) || {};
 
 function showFlashcards() {
   flashcardcontainer.innerHTML = ''; // Clear the container
 
-  // Sort the flashcards based on the storedFlashCardStates index
-  const sortedFlashcards = storedFlashCardStates.sort((a, b) => a.index - b.index);
+  currentIndex = JSON.parse(localStorage.getItem('currentIndex'));
+  // Find the next flashcard to display based on the current index
+  const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.index === currentIndex);
 
-  // Find the next flashcard to display
-  let nextFlashcardIndex = currentIndex;
-  while (nextFlashcardIndex < sortedFlashcards.length) {
-    const nextFlashcard = sortedFlashcards[nextFlashcardIndex];
-    if (!nextFlashcard.remember1 && !nextFlashcard.remember2 && !nextFlashcard.remember3) {
-      // Flashcard should appear again after the next 3 moves
-      break;
-    } else {
-      // Flashcard should appear in the next 6 moves
-      nextFlashcardIndex += 6;
-    }
+    
+  if (currentFlashcard) {
+    const flashcardElement = createFlashcardElement(currentFlashcard);
+    if (currentFlashcard.remember1 ){
+      flashCardsElement.classList.add('remember1');
+      }
+    if (currentFlashcard.remember2){
+      flashCardsElement.classList.add('remember2');
+    } 
+    if (currentFlashcard.remember3){
+      flashCardsElement.classList.add('remember3');
+    }   
+    flashcardcontainer.appendChild(flashcardElement);
+  
   }
-
-  // If we reached the end of the flashcards, loop back to the beginning
-  if (nextFlashcardIndex >= sortedFlashcards.length) {
-    nextFlashcardIndex = 0;
-  }
-
-  currentIndex = nextFlashcardIndex;
-  const currentFlashcard = sortedFlashcards[currentIndex];
-  const flashcardElement = createFlashcardElement(currentFlashcard);
-
-  flashcardcontainer.appendChild(flashcardElement);
+  console.log(currentIndex);
 }
 
+
 showFlashcards();
+
+const flashCardsElement = document.querySelectorAll('.flash-card');
 // Add event listeners to all flash cards
-const flashCards = document.querySelectorAll('.flash-card');
-flashCards.forEach(flashCard => {
-  //get all attribute from flash card 
+flashCardsElement.forEach(flashCard => {
+const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.index === currentIndex);
+let currentindex = JSON.parse(localStorage.getItem('currentIndex'));
 
-  const chapter = flashCard.closest('.chapter').getAttribute('data-chapter');
-  const move = flashCard.getAttribute('data-move');
-  
-
-  // Check if the flash card remember state is stored in local storage is true 
-  if (storedFlashCardStates.remember1 ){
-    flashCard.classList.add('remember1');
-  }
-  if (storedFlashCardStates.remember2){
-    flashCard.classList.add('remember2');
-  } 
-  if (storedFlashCardStates.remember3){
-    flashCard.classList.add('remember3');
-  }
+  currentindex++;
 
   flashCard.addEventListener('click', () => {
-    console.log('clicked');
-    console.log(storedFlashCardStates);
-
     flashCard.classList.toggle('flipped');
 
-    if (!storedFlashCardStates.remember1 ){
-       storedFlashCardStates.remember1 = true; 
-        flashCard.classList.add('remember1');
-    }
-    else if (!storedFlashCardStates.remember2 ){
-       storedFlashCardStates.remember2 = true; 
-        flashCard.classList.add('remember2');
-    } 
-    else if (!storedFlashCardStates.remember3 ){
-       storedFlashCardStates.remember3 = true; 
-        flashCard.classList.add('remember3');
+    if (!currentFlashcard.remember1) {
+      currentFlashcard.remember1 = true;
+      flashCard.classList.add('remember1');
+    } else if (!currentFlashcard.remember2) {
+      currentFlashcard.remember2 = true;
+      flashCard.classList.add('remember2');
+    } else if (!currentFlashcard.remember3) {
+      currentFlashcard.remember3 = true;
+      flashCard.classList.add('remember3');
     }
 
-    // Save the updated flash card states to local storage
-    localStorage.setItem('storedFlashCardStates', JSON.stringify(storedFlashCardStates));
-  }
-  )
-  }
-);
+    // Update the index to show the flashcard again after next 3 moves
+    currentFlashcard.index += 3;
+    console.log(currentFlashcard.index);
+    console.log(storedFlashCardStates);
+
+    // Save the updated flashcard states to local storage even page refresh or close
+
+    localStorage.setItem('flashcards', JSON.stringify(storedFlashCardStates));
+    localStorage.setItem('currentIndex', JSON.stringify(currentindex));
+  });
+});
+
