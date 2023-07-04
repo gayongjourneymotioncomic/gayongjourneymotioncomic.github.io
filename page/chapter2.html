@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
   <title>Motion Comic Chapter Page</title>
   <link rel="stylesheet" href="../styles/style.css">
 </head>
@@ -27,17 +29,32 @@
   <section class="video">
     <div class="container">
       <video width="320" height="240"  class="video-player" loop>
-      <source src="../chapter//chapter1/1panel.mp4" type="video/mp4">
+      <source src="../chapter//chapter1/1panel.mov" type="video/mp4">
       </video>
     </div>
     <div class="container">
       <video width="320" height="240"  class="video-player" loop>
-        <source src="../chapter//chapter1/2panel.mp4" type="video/mp4">
+        <source src="../chapter//chapter1/2panel.mov" type="video/mp4">
       </video>
     </div>
     <div class="container">
       <video width="320" height="240"  class="video-player" loop>
-      <source src="../chapter//chapter1/3panel.mp4" type="video/mp4">
+      <source src="../chapter//chapter1/3panel.mov" type="video/mp4">
+      </video>
+    </div>
+    <div class="container">
+      <video width="320" height="240"  class="video-player" loop>
+      <source src="../chapter//chapter1/4panel.mov" type="video/mp4">
+      </video>
+    </div>
+     <div class="container">
+      <video width="320" height="240"  class="video-player" loop>
+      <source src="../chapter//chapter1/5panel.mov" type="video/mp4">
+      </video>
+    </div>   
+    <div class="container">
+      <video width="320" height="240"  class="video-player" loop>
+      <source src="../chapter//chapter1/6panel.mov" type="video/mp4">
       </video>
     </div>
   </section>
@@ -47,9 +64,18 @@
     </div>
   </section>
   <section class="chapter" data-chapter="1">
-    <div class="flashcard-container">
+    <div class="flashcard-container2">
     </div>
   </section>
+
+  <article>
+    <div class="container">
+      <div class="button-container">
+        <button onclick = "window.location.href = './chapter1.html'; "class="button" id="previous">Previous</button>
+        <button onclick = "window.location.href='./chapter3.html';" class="button" id="next">Next</button>
+      </div>
+    </div>
+  </article>
 
 
 
