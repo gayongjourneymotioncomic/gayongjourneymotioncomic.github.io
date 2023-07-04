@@ -120,13 +120,13 @@ function showFlashcards() {
   if (currentFlashcard) {
     const flashcardElement = createFlashcardElement(currentFlashcard);
     if (currentFlashcard.remember1 ){
-      flashCardsElement.classList.add('remember1');
+      flashcardElement.classList.add('remember1');
       }
     if (currentFlashcard.remember2){
-      flashCardsElement.classList.add('remember2');
+      flashcardElement.classList.add('remember2');
     } 
     if (currentFlashcard.remember3){
-      flashCardsElement.classList.add('remember3');
+      flashcardElement.classList.add('remember3');
     }   
     flashcardcontainer.appendChild(flashcardElement);
 
@@ -173,13 +173,13 @@ function showFlashcards2(){
   if (currentFlashcard) {
     const flashcardElement = createFlashcardElement(currentFlashcard);
     if (currentFlashcard.remember1 ){
-      flashCardsElement.classList.add('remember1');
+      flashcardElement.classList.add('remember1');
       }
     if (currentFlashcard.remember2){
-      flashCardsElement.classList.add('remember2');
+      flashcardElement.classList.add('remember2');
     } 
     if (currentFlashcard.remember3){
-      flashCardsElement.classList.add('remember3');
+      flashcardElement.classList.add('remember3');
     }   
     flashcardcontainer2.appendChild(flashcardElement);
   
@@ -193,7 +193,7 @@ showFlashcards2();
 const flashCardsElement = document.querySelectorAll('.flash-card');
 // Add event listeners to all flash cards
 flashCardsElement.forEach(flashCard => {
-const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.index === currentIndex);
+const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.sequence === currentIndex);
 let currentindex = JSON.parse(localStorage.getItem('currentIndex'));
 
   flashCard.addEventListener('click', () => {
@@ -212,9 +212,6 @@ let currentindex = JSON.parse(localStorage.getItem('currentIndex'));
 
     // Update the index to show the flashcard again after next 3 moves
     currentFlashcard.index += 1;
-    console.log(currentFlashcard.index);
-    console.log(storedFlashCardStates);
-
     // Save the updated flashcard states to local storage even page refresh or close
 
     localStorage.setItem('flashcards', JSON.stringify(storedFlashCardStates));
