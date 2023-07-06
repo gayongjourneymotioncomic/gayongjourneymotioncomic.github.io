@@ -3,9 +3,10 @@
 const flashcards = [
   {
     sequence: 1,
+    question: 'Apa nama perbuatan ini?',
     seen: false,
     name: 'Kuda-kuda',
-    imagePath: '../flashcard/flashcard1.png',
+    imagePath: '../flashcard/flashcard_kuda-kuda.gif',
     remember1: false,
     remember2: false,
     remember3: false,
@@ -13,9 +14,10 @@ const flashcards = [
   },
   {
     sequence: 2,
+    question: 'Apa nama gerakan ini?',
     seen: false,
     name: 'Tumbuk Pintal Tali',
-    imagePath: '../img/silat2_bg.jpg',
+    imagePath: '../flashcard/flashcard_gerakan1.gif',
     remember1: false,
     remember2: false,
     remember3: false,
@@ -24,14 +26,26 @@ const flashcards = [
   {
     sequence: 3,
     seen: false,
+    question: 'Apa nama gerakan ini?',
     name: 'Pancung Dayung',
-    imagePath: '../img/silat-bg.jpg',
+    imagePath: '../flashcard/flashcard_gerakan2.gif',
     remember1: false,
     remember2: false,
     remember3: false,
     index: 2
   },
   // Add more flashcards...
+  {
+    sequence: 4,
+    seen: false,
+    question: 'Apa nama gerakan ini?',
+    name: 'Tumbuk Bertapak',
+    imagePath: '../flashcard/flashcard_gerakan3.gif',
+    remember1: false,
+    remember2: false,
+    remember3: false,
+    index: 3
+  },
 ];
 
 // add object into local storage
@@ -61,7 +75,8 @@ function createFlashcardElement(flashcard) {
   imageElement.src = flashcard.imagePath;
   imageElement.alt = flashcard.name;
 
-  flashcardtitle.textContent = "Flashcard";
+  flashcardtitle.classList.add('flashcard-title');
+  flashcardtitle.textContent = flashcard.question;
   
   flashcardElement.appendChild(flashcardtitle);
 
@@ -73,7 +88,7 @@ function createFlashcardElement(flashcard) {
 
 // flash card
   const flashcardContent = document.createElement('div');
-  chapterContent.classList.add('flash-card');
+  flashcardContent.classList.add('flashcard');
 
 
   const flashcardmain = document.createElement('div');

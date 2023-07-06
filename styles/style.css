@@ -498,4 +498,14 @@ article {
 .button:hover {
   background-color: #ffffff;
   color: #003049;
+}
+
+.flashcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.flashcard h2 {
+  text-transform: uppercase;
 }/*# sourceMappingURL=style.css.map */
