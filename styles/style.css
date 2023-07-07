@@ -506,6 +506,7 @@ article {
   align-items: center;
   flex-direction: column;
 }
-.flashcard h2 {
+
+.flashcard-main h2 {
   text-transform: uppercase;
 }/*# sourceMappingURL=style.css.map */

@@ -159,7 +159,20 @@ article{
   align-items: center;
   flex-direction: column;
 
+}
+
+.flashcard-main{
   h2{
     text-transform: uppercase;
   }
+}
+
+.remember1{
+  border: 1px solid $primary-color;
+}
+.remember2{
+  border: 1px solid $secondary-color;
+}
+.remember3{
+  border: 1px solid $tertiary-color;
 }
