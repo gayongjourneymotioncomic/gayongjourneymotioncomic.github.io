@@ -256,6 +256,14 @@ footer {
   height: 50px;
 }
 
+.chapter p{
+  color: #e9ecef;
+  letter-spacing: 5px;
+}
+
+.chapter h2{
+  line-height: 0;
+}
 .chapter-list {
   background-color: #fff;
   padding: 100px 0;
