@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
+  background-color: #F1F1F0;
   color: #003049;
   line-height: 1.6;
 }
@@ -98,7 +98,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
+  background-color: #f1f1f0;
   color: #003049;
   line-height: 1.6;
 }
@@ -379,7 +379,7 @@ a:hover {
 
 .video {
   padding: 50px 0;
-  background-color: #ffffff;
+  background-color: #f1f1f0;
   flex-direction: column;
   position: relative;
   height: -moz-fit-content;
@@ -395,7 +395,6 @@ a:hover {
   max-width: 800px;
   height: auto;
   display: flex;
-  border: 5px solid #003049;
 }
 
 .chapter {

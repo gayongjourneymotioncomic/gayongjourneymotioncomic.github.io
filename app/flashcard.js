@@ -146,7 +146,7 @@ function showFlashcards() {
   // Find the next flashcard to display based on the current index
   currentpage = document.querySelector('.current-page');
   console.log(currentpage.id);
-  const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.page === currentpage.id);
+  let currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.page === currentpage.id);
 
     
   if (currentFlashcard) {
