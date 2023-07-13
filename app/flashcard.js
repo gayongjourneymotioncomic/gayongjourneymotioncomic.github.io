@@ -4,6 +4,18 @@ const flashcards = [
   {
     page: 'page1',
     sequence: 1,
+    question: 'Apakah logo ini',
+    seen: false,
+    name: 'Logo Pertubuhan Silat Seni Gayong Malaysia',
+    imagePath: '../flashcard/flashcard_logo.png',
+    remember1: false,
+    remember2: false,
+    remember3: false,
+    index: 0
+  },
+  {
+    page: 'page2',
+    sequence: 2,
     question: 'Apa nama perbuatan ini?',
     seen: false,
     name: 'Kuda-kuda',
@@ -14,8 +26,8 @@ const flashcards = [
     index: 0
   },
   {
-    page:'page2',
-    sequence: 2,
+    page:'page3',
+    sequence: 3,
     question: 'Apa nama gerakan ini?',
     seen: false,
     name: 'Tumbuk Pintal Tali',
@@ -226,8 +238,8 @@ function showFlashcards2(){
 
   });
   let currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.index === index);
+  let flashcardElement = createFlashcardElement(currentFlashcard);
   if (currentFlashcard) {
-    const flashcardElement = createFlashcardElement(currentFlashcard);
     if (currentFlashcard.remember1 ){
       flashcardElement.classList.add('remember1');
       }
@@ -243,6 +255,7 @@ function showFlashcards2(){
 const clickedFlashcardElement = document.getElementById(currentFlashcard.sequence);
     clickedFlashcardElement.addEventListener('click', function(){
       clickedFlashcardElement.classList.toggle('flipped');
+
 
           if (!currentFlashcard.remember1) {
             currentFlashcard.remember1 = true;
