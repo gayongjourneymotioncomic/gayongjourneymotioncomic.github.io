@@ -98,7 +98,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f1f1f0;
+  background-color: #F1F1F0;
   color: #003049;
   line-height: 1.6;
 }
@@ -256,14 +256,6 @@ footer {
   height: 50px;
 }
 
-.chapter p{
-  color: #e9ecef;
-  letter-spacing: 5px;
-}
-
-.chapter h2{
-  line-height: 0;
-}
 .chapter-list {
   background-color: #fff;
   padding: 100px 0;
@@ -373,6 +365,16 @@ a:hover {
   padding: 50px 0;
   background-color: #003049;
 }
+.chapter:first-of-type {
+  height: 100%;
+}
+.chapter:first-of-type h2 {
+  line-height: 0;
+}
+.chapter:first-of-type p {
+  color: #e9ecef;
+  letter-spacing: 5px;
+}
 .chapter h2 {
   color: #ffffff;
   font-size: 2rem;
@@ -451,7 +453,7 @@ a:hover {
      object-fit: cover;
 }
 .chapter .flash-card .flash-card-back {
-  background-color: #007bff;
+  background-color: #111111;
   color: #fff;
   display: flex;
   justify-content: center;

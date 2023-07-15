@@ -2,6 +2,17 @@
   height: fit-content;
   padding: 50px 0;
   background-color: $primary-color;
+  
+  &:first-of-type {
+    height: 100% ;
+    h2{
+      line-height: 0;
+    }
+    p{
+      color: #e9ecef;
+      letter-spacing: 5px;
+    }
+  }
 
   h2 {
     color: $secondary-color;
@@ -90,7 +101,7 @@
     }
 
     .flash-card-back {
-      background-color: #272727;
+      background-color: #111111;
       color: #fff;
       display: flex;
       justify-content: center;
@@ -166,12 +177,3 @@ article{
   }
 }
 
-.remember1{
-  border: 1px solid $primary-color;
-}
-.remember2{
-  border: 1px solid $secondary-color;
-}
-.remember3{
-  border: 1px solid $tertiary-color;
-}
