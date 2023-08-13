@@ -394,7 +394,6 @@ a:hover {
 .video {
   padding: 50px 0;
   background-color: #f1f1f0;
-  flex-direction: column;
   position: relative;
   height: -moz-fit-content;
   height: fit-content;
@@ -404,11 +403,14 @@ a:hover {
   width: 100%;
 }
 .video .video-player {
-  margin-block: 10px;
   width: 80%;
   max-width: 800px;
   height: auto;
   display: flex;
+}
+
+.play {
+  width: 100%;
 }
 
 .chapter {
@@ -478,6 +480,7 @@ a:hover {
 }
 
 video {
+  transition: all 0.3s ease-in-out;
   filter: blur(5px);
 }
 

@@ -31,7 +31,6 @@
 .video {
   padding: 50px 0;
   background-color: #f1f1f0;
-  flex-direction: column;
   position: relative;
   height: fit-content;
 
@@ -42,13 +41,16 @@
   }
 
   .video-player {
-    margin-block: 10px;  
     width: 80%;
     max-width: 800px;
     height: auto;
     display: flex;
 
   }
+}
+
+.play{
+  width: 100%;
 }
 
 .chapter {
@@ -127,7 +129,9 @@
 }
 
 video{
+  transition: all 0.3s ease-in-out;
   filter: blur(5px);
+
 }
 
 
