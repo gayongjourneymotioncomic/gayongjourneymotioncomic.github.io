@@ -363,29 +363,29 @@ a:hover {
   flex-direction: column;
 }
 
-.chapter {
+.chapter, .chapter-title {
   height: -moz-fit-content;
   height: fit-content;
   padding: 50px 0;
   background-color: #003049;
 }
-.chapter:first-of-type {
+.chapter:first-of-type, .chapter-title:first-of-type {
   height: 100%;
 }
-.chapter:first-of-type h2 {
+.chapter:first-of-type h2, .chapter-title:first-of-type h2 {
   line-height: 0;
 }
-.chapter:first-of-type p {
+.chapter:first-of-type p, .chapter-title:first-of-type p {
   color: #e9ecef;
   letter-spacing: 5px;
 }
-.chapter h2 {
+.chapter h2, .chapter-title h2 {
   color: #ffffff;
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
 }
-.chapter .chapter-content {
+.chapter .chapter-content, .chapter-title .chapter-content {
   color: #ffffff;
   text-align: center;
   font-size: 1.2rem;
