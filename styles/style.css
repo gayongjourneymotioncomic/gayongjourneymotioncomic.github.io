@@ -52,6 +52,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
 }
 
 nav {
@@ -138,6 +140,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
 }
 
 nav {
@@ -471,6 +475,10 @@ a:hover {
 }
 .chapter .flash-card.flipped .flash-card-back {
   transform: rotateY(0);
+}
+
+video {
+  filter: blur(5px);
 }
 
 .chapter .container {
