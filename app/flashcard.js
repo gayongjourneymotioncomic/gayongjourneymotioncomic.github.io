@@ -62,8 +62,8 @@ if (!localStorage.getItem('flashcards')) {
 // get object from local storage
 
 
+//select all flashcard container  
 
-const flashcardcontainer = document.querySelector('.flashcard-container');
 
 function createFlashcardElement(flashcard) {
   const flashcardElement = document.createElement('div');
@@ -131,67 +131,76 @@ function createFlashcardElement(flashcard) {
   return flashcardElement;
 }
 
+const allFlashcards = document.querySelectorAll('.flashcard-container');
 // Get the stored flash card states from local storage
 const storedFlashCardStates = JSON.parse(localStorage.getItem('flashcards')) || {};
-let sequence = 1; 
 function showFlashcards() {
-  flashcardcontainer.innerHTML = ''; // Clear the container
-
-  //find the current flashcard sequence by sequence number 
-  const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.sequence === sequence);
-
-
-  console.log(currentFlashcard);
-  console.log(storedFlashCardStates);
-  if (currentFlashcard) {
-    const flashcardElement = createFlashcardElement(currentFlashcard);
-    if (currentFlashcard.remember1 ){
-      flashcardElement.classList.add('remember1');
-      }
-    if (currentFlashcard.remember2){
-      flashcardElement.classList.add('remember2');
-    } 
-    if (currentFlashcard.remember3){
-      flashcardElement.classList.add('remember3');
-    }   
-    //add id to flashcard element
-    flashcardcontainer.appendChild(flashcardElement);
-
-    currentFlashcard.seen = true;
-    storedFlashCardStates[currentFlashcard.seen] = currentFlashcard;
-    //store in local storage
-    localStorage.setItem('flashcards', JSON.stringify(storedFlashCardStates));
-
-    //add event listener to flashcard element
-
-    const clickedFlashcardElement = document.getElementById(currentFlashcard.sequence);
-    clickedFlashcardElement.addEventListener('click', function(){
-      clickedFlashcardElement.classList.toggle('flipped');
-
-          if (!currentFlashcard.remember1) {
-            currentFlashcard.remember1 = true;
-            clickedFlashcardElement.classList.add('remember1');
-          } else if (!currentFlashcard.remember2) {
-            currentFlashcard.remember2 = true;
-            flashcardElement.classList.add('remember2');
-          } else if (!currentFlashcard.remember3) {
-            currentFlashcard.remember3 = true;
-            flashcardElement.classList.add('remember3');
-          }
-          sequence++;
-
-          // Update the index to show the flashcard again after next 3 moves
-          // Save the updated flashcard states to local storage even page refresh or close
-
-          localStorage.setItem('flashcards', JSON.stringify(storedFlashCardStates));
-  });
   
-    }
+  let sequence = 1; 
+  allFlashcards.forEach(eachflashcard => {
+    console.log(sequence);
+    eachflashcard.innerHTML = ''; // Clear the container
+
+    const currentFlashcard = storedFlashCardStates.find(flashcard => flashcard.sequence === sequence);
+  
+    if (currentFlashcard) {
+      const flashcardElement = createFlashcardElement(currentFlashcard);
+  
+      const allFlashcards = document.querySelectorAll('.flashcard-container');
+      if (currentFlashcard.remember1 ){
+        flashcardElement.classList.add('remember1');
+        }
+      if (currentFlashcard.remember2){
+        flashcardElement.classList.add('remember2');
+      } 
+      if (currentFlashcard.remember3){
+        flashcardElement.classList.add('remember3');
+      }   
+      //add id to flashcard element
+      eachflashcard.appendChild(flashcardElement);
+  
+      currentFlashcard.seen = true;
+      storedFlashCardStates[currentFlashcard.seen] = currentFlashcard;
+      //store in local storage
+      localStorage.setItem('flashcards', JSON.stringify(storedFlashCardStates));
+  
+      //add event listener to flashcard element
+  
+      const clickedFlashcardElement = document.getElementById(currentFlashcard.sequence);
+      clickedFlashcardElement.addEventListener('click', function(){
+        clickedFlashcardElement.classList.toggle('flipped');
+  
+            if (!currentFlashcard.remember1) {
+              currentFlashcard.remember1 = true;
+              clickedFlashcardElement.classList.add('remember1');
+            } else if (!currentFlashcard.remember2) {
+              currentFlashcard.remember2 = true;
+              flashcardElement.classList.add('remember2');
+            } else if (!currentFlashcard.remember3) {
+              currentFlashcard.remember3 = true;
+              flashcardElement.classList.add('remember3');
+            }
+            
+            // Update the index to show the flashcard again after next 3 moves
+            // Save the updated flashcard states to local storage even page refresh or close
+  
+            localStorage.setItem('flashcards', JSON.stringify(storedFlashCardStates));
+          });
+          sequence++;
+    
+      }
+
+  });
+  //find the current flashcard sequence by sequence number 
   }
 
+    
+  //show all flashcards that have class flashcard-container
 
-showFlashcards();
+  //add event listener to next button
 
+  
+  showFlashcards();
 
 
 const nextButton = document.getElementById('next');

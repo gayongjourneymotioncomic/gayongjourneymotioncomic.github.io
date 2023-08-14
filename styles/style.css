@@ -54,6 +54,7 @@ header {
   justify-content: space-around;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
 nav {
@@ -61,7 +62,6 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 20px 0;
-  z-index: 2;
 }
 nav .container {
   display: flex;
@@ -142,6 +142,7 @@ header {
   justify-content: space-around;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
 nav {
@@ -149,7 +150,6 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 20px 0;
-  z-index: 2;
 }
 nav .container {
   display: flex;
@@ -414,7 +414,11 @@ a:hover {
 }
 
 .chapter {
+  background-color: #000000;
   padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 .chapter h2 {
   font-size: 2rem;
@@ -446,7 +450,7 @@ a:hover {
   border-radius: 10px;
 }
 .chapter .flash-card .flash-card-front {
-  background-color: #e9ecef;
+  background-color: #003049;
   display: flex;
   justify-content: center;
   align-items: center;
