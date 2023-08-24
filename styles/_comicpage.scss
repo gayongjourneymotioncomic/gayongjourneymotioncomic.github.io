@@ -41,7 +41,7 @@
   }
 
   .video-player {
-    width: 80%;
+    width: 260px;
     max-width: 800px;
     height: auto;
     display: flex;
@@ -50,7 +50,7 @@
 }
 
 .play{
-  width: 100%;
+  width: 430px;
 }
 
 .flashcard-main-container{
@@ -109,7 +109,7 @@
     }
 
     .flash-card-back {
-      background-color: $primary-color
+      background-color: $primary-color;
       color: #fff;
       display: flex;
       justify-content: center;
@@ -190,3 +190,21 @@ article{
   }
 }
 
+
+.list{
+  margin: 2%;
+
+  ul{
+    display: flex;
+    gap: 20px;
+    li{
+      color: rgba($primary-color,0.5);
+      padding: 5px 10px;
+      border-radius: 15px;
+    }
+    .selected{
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
