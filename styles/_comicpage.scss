@@ -33,6 +33,7 @@
   background-color: #f1f1f0;
   position: relative;
   height: fit-content;
+  
 
   .container {
     display: flex;
@@ -41,7 +42,7 @@
   }
 
   .video-player {
-    width: 260px;
+    width: 80%;
     max-width: 800px;
     height: auto;
     display: flex;
