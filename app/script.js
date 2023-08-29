@@ -25,3 +25,16 @@ const videos = document.querySelectorAll('video');
     setTimeout(() => {
       playNextVideo();
   }, 3000);
+
+
+const notchapter = document.querySelectorAll('.not-chapter');
+
+notchapter.forEach((notchapter) => {
+  notchapter.addEventListener('click', () => {
+    readchapter();
+  });
+});
+
+  function readchapter(){
+    alert("You have to start from the first chapter");
+  }

@@ -322,9 +322,10 @@ footer {
 }
 .chapter-list .chapter-items {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 3%;
   width: 100%;
 }
 .chapter-list .chapter-item {
@@ -371,6 +372,11 @@ footer {
   font-weight: 300;
   font-size: 0.8rem;
   color: #fff;
+}
+
+a.not-chapter {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .odd {
