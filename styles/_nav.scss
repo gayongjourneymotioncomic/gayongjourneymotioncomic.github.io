@@ -31,9 +31,21 @@ nav {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
+  position: relative;
   text-decoration: none;
   color: $secondary-color;
   z-index:1; 
+  &::before{
+    content: url('../img/favicon-32x32.png');
+    position: absolute;
+    top: 0;
+    left: -25%;
+    width: 5px;
+  }
+
+  &:hover{
+    color: #eeea00;
+  }
 }
 
 .nav-links li {
@@ -44,5 +56,8 @@ nav {
 .nav-links li a {
   color: $secondary-color;
   text-decoration: none;
+  &:hover{
+    color: #eeea00;
+  }
 }
 

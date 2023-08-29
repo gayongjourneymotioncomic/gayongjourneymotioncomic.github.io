@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
   <title>Motion Comic Chapter Page</title>
   <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <header>
@@ -27,6 +28,17 @@
       <p>Gayong</p>
     </div>
   </section>
+  <article class="list">
+    <ul class="list-chapter">
+      <li >Bab 1</li>
+      <li class="selected">Bab 2</li>
+      <li>Bab 3</li>
+      <li>Kad Imbasan</li>
+      <li>Bab 4</li>
+      <li>Bab 5</li>
+      <li>Kad Imbasan</li>
+    </ul>
+  </article>
   <section class="video">
     <div class="container">
       <video width="320" height="240"  class="video-player" >
@@ -44,8 +56,12 @@
   <article>
     <div class="container">
       <div class="button-container">
-        <button onclick = "window.location.href='./chapter3.html';" class="button" id="previous">Previous</button>
-        <button onclick = "window.location.href='./chapter5.html';" class="button" id="next">Next</button>
+        <button onclick = "window.location.href='./chapter3.html';" class="button" id="previous">
+          <span class="material-symbols-outlined"> chevron_left </span>
+        </button>
+        <button onclick = "window.location.href='./chapter5.html';" class="button" id="next">
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
       </div>
     </div>
   </article>
