@@ -408,6 +408,10 @@ a:hover {
   flex-direction: column;
 }
 
+.about {
+  margin-top: 3%;
+}
+
 .list-chapter a {
   font-weight: 300;
   cursor: not-allowed;
